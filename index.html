@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>
+			NakkoBhulo.com
+		</title>
+
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+
+	<body>
+		<h1 class="heading">Do it..</h1>
+		<hr>
+    <div class="main">
+			Add new task:<br>
+			<input type="text" id="textfield" class="inputfield"></input>
+			<button onclick="createNewTask()" class="adder">ADD</button>
+			
+
+	 </div>
+	 <div class="list">
+	<p >
+		<ol id="ourlist">	
+		</ol>
+	</p>
+
+	</div>
+		
+		<img src="doit.gif" class="image">
+
+	</body>
+
+
+</html>
+
+
+ <script>
+
+	var item_no = 1;
+ 	function createNewTask()
+	{
+		var str = document.getElementById("textfield").value;
+		if(str == "")
+		{
+			alert("EMPTY STRING!!");
+		}
+		else
+		{
+			console.log(str);
+			var myTask = document.createElement("li");
+			myTask.setAttribute("id","number"+String(item_no));
+			myTask.innerHTML = String(str);
+			var myClear = document.createElement("button");
+			myClear.innerHTML = "done";
+			myClear.style.display = "inline-block";
+			myClear.setAttribute("class","done");
+			myClear.setAttribute("id",String(item_no));
+			myClear.setAttribute("onclick","removeTask("+ String(item_no) + ")");
+			document.getElementById("ourlist").appendChild(myTask);
+			//document.getElementById("ourlist").appendChild(myClear);
+			myTask.appendChild(myClear);
+			item_no = Number(item_no);
+			item_no++;
+
+			document.getElementById("textfield").value = "";
+		}
+	}
+	function removeTask( id )
+	{
+		document.getElementById("number"+String(id)).remove();
+		document.getElementById(String(id)).remove();
+	}
+</script>
