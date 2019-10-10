@@ -1,7 +1,7 @@
 body
 {
 	background: -moz-linear-gradient(#a3dcff,#FFFFFF);
-	background: -webkit-linear-gradient(,);
+	background: -webkit-linear-gradient(#a3dcff,#FFFFFF);
 	background: linear-gradient(,);
 	background-repeat:no-repeat;
 
